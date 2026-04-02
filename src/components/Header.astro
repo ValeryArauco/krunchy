@@ -1,0 +1,238 @@
+<header>
+    <div class="logo">
+        <img src="/logo.png" alt="Logo de krunchy studio">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Portafolio</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+
+        <a href="#" class="cta">Contactanos</a>
+
+        <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            >
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav>
+    <a href="#comodidades">Inicio</a>
+    <a href="#espacios">Servicios</a>
+    <a href="#ubicacion">Portafolio</a>
+    <a href="#faq">Contacto</a>
+    <a
+      class="cta-mobile"
+      href="https://api.whatsapp.com/send?phone=59177935606&text=Hola,%20quisiera%20solicitar%20una%20plaza%20en%20la%20residencia."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactanos"
+    >
+      Contactanos →
+    </a>
+  </nav>
+</div>
+
+<style>
+    *{
+        font-family: 'Montserrat', sans-serif;
+    }
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 20px;
+        width: 1200px;
+        background-color: white;
+        border-radius: 30px;
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-sizing: border-box;
+        z-index: 999;
+    }
+    .logo img{
+        height: 30px;
+        margin-top: 5px;
+    }
+
+    nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        
+    }
+    
+
+    ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    li{
+        list-style: none;
+        
+    }
+
+    a{
+        text-decoration: none;
+        color: #2C2C2C;
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+    a:hover{
+        color: #8198CA;
+    }
+
+    .cta{
+        text-decoration: none;
+		background: #8198CA;
+		color: #FFFFFF;
+		padding: 10px 20px;
+		border-radius: 30px;
+		font-weight: 700;
+    }
+
+    .cta:hover{
+        background: white;
+        border: 1px solid #8198CA;
+    }
+
+
+
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .hamburger span {
+        display: block;
+        height: 1.5px;
+        background: #8198CA;
+        border-radius: 2px;
+        transition: transform 0.35s ease, opacity 0.35s ease;
+        transform-origin: center;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(4.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-4.5px) rotate(-45deg); }
+
+    .mobile-menu {
+        position: fixed;
+        top: 64px;
+        left: 0; right: 0;
+        z-index: 199;
+
+        background: transparent;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        width: calc(100% - 48px);
+        left: 24px;
+        right: 24px;
+        top: 80px;
+        border-radius: 30px;
+    }
+
+    .mobile-menu.open { 
+        max-height: 420px;
+        background: white;
+     }
+
+    .mobile-menu nav {
+        display: flex;
+        flex-direction: column;
+        padding: 12px 24px 28px;
+        gap: 2px;
+    }
+
+    .mobile-menu a {
+        font-size: 16px;
+        color: #2C2C2C;
+        text-decoration: none;
+        padding: 14px 0;
+        border-bottom: 1px solid #8198ca82;
+        transition: color 0.2s;
+        width: 100%;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .mobile-menu a:active { color: #ffffff; 
+    background-color: #8198CA;
+    }
+
+    .cta-mobile {
+        background-color: #8198CA;
+        margin-top: 24px;
+        color: #fff !important;
+        font-weight: 600 !important;
+        border-bottom: none !important;
+        letter-spacing: 0.02em;
+        text-align: center;
+    }
+
+    .cta-mobile:active {
+        background-color: #ffffff !important;
+        color: #8198CA !important;
+        border: 2px solid #5B68C9;
+    }
+    @media (max-width: 1200px) {
+        header{
+            width: calc(100% - 48px);
+        }
+    }
+    @media (max-width: 768px) {
+        nav ul { display: none; }
+        nav .cta { display: none; }
+        .hamburger { display: flex; }
+    }
+</style>
+
+<script>
+  const hamburger = document.getElementById('hamburger') as HTMLButtonElement;
+  const menu = document.getElementById('mobile-menu') as HTMLElement;
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    menu.setAttribute('aria-hidden', String(!isOpen));
+  });
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+        menu.setAttribute('aria-hidden', 'true');
+        hamburger?.classList.remove('open');
+        hamburger?.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('open');
+    });
+  });
+</script>
