@@ -10,7 +10,7 @@
             <li><a href="#">Contacto</a></li>
         </ul>
 
-        <a href="#" class="cta">Contactanos</a>
+        <a href="#" class="cta">Empecemos</a>
 
         <button
             class="hamburger"
@@ -36,9 +36,9 @@
       href="https://api.whatsapp.com/send?phone=59177935606&text=Hola,%20quisiera%20solicitar%20una%20plaza%20en%20la%20residencia."
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Contactanos"
+      aria-label="Cotizar"
     >
-      Contactanos →
+      Cotizar →
     </a>
   </nav>
 </div>
@@ -109,11 +109,13 @@
 		padding: 10px 20px;
 		border-radius: 30px;
 		font-weight: 700;
+        transition: all 0.3s ease;
     }
 
     .cta:hover{
-        background: white;
-        border: 1px solid #8198CA;
+        transform: scale(1.05) rotate(3deg);
+        color: #fff;
+
     }
 
 
@@ -185,8 +187,9 @@
         text-align: center;
     }
 
-    .mobile-menu a:active { color: #ffffff; 
-    background-color: #8198CA;
+    .mobile-menu a:active { 
+        color: #ffffff; 
+        background-color: #8198CA;
     }
 
     .cta-mobile {
@@ -197,13 +200,16 @@
         border-bottom: none !important;
         letter-spacing: 0.02em;
         text-align: center;
+        
+        transition: all 0.3s ease;
     }
 
     .cta-mobile:active {
-        background-color: #ffffff !important;
-        color: #5B68C9 !important;
-        border: 2px solid #5B68C9;
+        transform: scale(1.05) rotate(3deg);
+        color: #fff;
     }
+
+    
     @media (max-width: 1200px) {
         header{
             width: calc(100% - 48px);
