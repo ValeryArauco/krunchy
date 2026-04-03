@@ -142,43 +142,49 @@
 
 	<section class="objetivo">
 		<div class="objetivo-container">
-			<div class="objetivo-header">
-				<div class="chip dark">OBJETIVO</div>
-				<h2>DISEÑADO <br /> PARA <em>CRECER</em></h2>
-			</div>
-			<div class="objetivo-content">
-				<p>
-					Diseñado para pequeñas y medianas empresas que buscan
-					mantener una presencia activa en redes. Incluye contenido
-					grabado con celular para un estilo más cercano y dinámico,
-					combinado con fotos en cámara profesional, garantizando el
-					equilibrio perfecto.
-				</p>
-			</div>
-			<div class="objetivo-cards">
-				<div class="objetivo-card">
-					<h3>Contenido Orgánico</h3>
+			<div class="objetivo-texts">
+
+			
+				<div class="objetivo-header">
+					<div class="chip dark">OBJETIVO</div>
+					<h2>DISEÑADO <br /> PARA <em>CRECER</em></h2>
+				</div>
+				<div class="objetivo-content">
 					<p>
-						Asegura contenido orgánico de calidad para mostrar tu
-						producto con profesionalismo.
+						Diseñado para pequeñas y medianas empresas que buscan
+						mantener una <em>presencia activa en redes</em>. Incluye contenido
+						grabado con celular para un estilo más <em>cercano y dinámico</em>,
+						combinado con fotos en cámara profesional, garantizando el
+						equilibrio perfecto.
 					</p>
 				</div>
-				<div class="objetivo-card">
-					<h3>Banco de imágenes</h3>
-					<p>
-						Obtiene imágenes para tu marca. Construye poco a poco
-						una identidad visual sólida y atractiva.
-					</p>
-				</div>
-				<div class="objetivo-card">
-					<h3>Contenido UGC</h3>
-					<p>
-						Contenido rápido, dinámico y atractivo que amplia tu
-						alcance y conecta con nuevas audiencias.
-					</p>
+				<div class="objetivo-cards">
+					<div class="objetivo-card oc1">
+						<h3>Contenido Orgánico</h3>
+						<p>
+							Contenido natural, de calidad y con enfoque profesional.
+						</p>
+					</div>
+					<div class="objetivo-card oc2">
+						<h3>Banco de imágenes</h3>
+						<p>
+							Imágenes para tu marca que construyen una identidad visual sólida.
+						</p>
+					</div>
+					<div class="objetivo-card oc3">
+						<h3>Contenido con creadores</h3>
+						<p>
+							Recomendaciones reales para aumentar confianza y alcance. 
+						</p>
+					</div>
 				</div>
 			</div>
+			<video controls autoplay muted loop playsinline width="640">
+				<source src="/objetivo.mp4" type="video/mp4" />
+				Tu navegador no soporta videos.
+			</video>
 		</div>
+		
 	</section>
 </main>
 
@@ -439,6 +445,7 @@
 
 		.servicios {
 			height: auto !important;
+			
 		}
 		.shape {
 			position: absolute !important;
@@ -517,7 +524,6 @@
 	.chip {
 		width: 100px;
 		height: 25px;
-		background-color: var(--white);
 		border-radius: 7px;
 		display: flex;
 		justify-content: center;
@@ -525,7 +531,15 @@
 		font-family: var(--font-montserrat);
 		font-size: 14px;
 		font-weight: 700;
+	}
+	.light{
+		background-color: var(--white);
 		color: var(--primary);
+	}
+
+	.dark{
+		background-color: var(--primary);
+		color: var(--white);
 	}
 
 	.servicios-cards {
@@ -671,6 +685,167 @@
 			transform: translateY(0);
 		}
 	}
+
+	.objetivo{
+		height: 100vh;
+		width: 100%;
+		margin: 0 ;
+		margin-top: -1px;
+		background-color: var(--white);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+	}
+
+	.objetivo-container{
+		width: 100%;
+		height: auto;
+		max-width: 1200px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+	}
+
+	.objetivo-texts{
+		width: 50%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: left;
+	}
+	.objetivo-header h2{
+		color: var(--accent);
+		padding: 10px 0;
+	}
+
+	.objetivo-header h2 em{
+		color: var(--violet);
+	}
+	
+
+	.objetivo-content{
+		color: var(--black);
+		font-family: var(--font-hind);
+		font-size: clamp(14px, 2vw, 16px);
+		font-weight: 400;
+	}
+	
+	.objetivo-content em{
+		color: var(--dark-accent);
+		font-style: normal;
+		font-family: var(--font-hind);
+		font-weight: 700;
+	}
+
+	.objetivo-cards{
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 20px;
+	}
+
+	.objetivo-card{
+		width: 32%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: top;
+		align-items: center;
+		padding: 20px;
+		border-radius: 30px;
+	}
+
+	.oc1{
+		background-color: var(--primary);
+	}
+
+	.oc2{
+		background-color: var(--accent);
+	}
+
+	.oc3{
+		background-color: var(--violet);
+	}
+
+	.objetivo-card h3{
+		color: var(--white);
+		text-align: center;
+		padding-bottom: 10px;
+	}
+
+
+	.objetivo-card p{
+		color: var(--white);
+		font-family: var(--font-hind);
+		font-size: clamp(14px, 2vw, 16px);
+		font-weight: 400;
+		text-align: center;
+	}
+	.objetivo video{
+		width: 40%;
+		height: auto;
+		object-fit: cover;
+		border-radius: 30px;
+	}
+
+	@media (max-width: 1200px) {
+        .servicios-container,
+		.objetivo-container{
+            width: calc(100% - 48px);
+        }
+
+
+		
+
+
+    }
+
+	@media (max-width: 768px) {
+		.objetivo-cards{
+			flex-direction: column;
+			gap: 20px;
+		}
+		.objetivo-card{
+			width: 100%;
+			padding: 10px 20px;
+
+		}
+		.objetivo-card h3{
+			font-size: clamp(16px, 2vw, 20px);
+			padding: 0;
+
+			width: 100%;
+			text-align: left;
+		}
+		.objetivo-card p{
+			display: none;
+		}
+	}
+
+	@media (max-width: 576px) {
+		.objetivo{
+			height: auto;
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+		.objetivo-container{
+			flex-direction: column;
+			gap: 20px;
+			height: auto;
+		}
+		.objetivo video,
+		.objetivo-texts{
+			width: 100%;
+		}
+	}
 </style>
 
 <script
@@ -737,7 +912,7 @@
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: ".servicios",
-					start: "top 40%",
+					start: "top 30%",
 					end: "bottom 100%",
 					scrub: 0.05,
 				},
