@@ -62,7 +62,7 @@ const whatsappLink = `https://wa.me/59162161541?text=${encodeURIComponent(
 	}
 
 	.paquete-card-content h3 {
-		font-size: 1.25rem;
+		font-size: clamp(18px, 1vw, 20px);
 		font-weight: 700;
 		color: var(--violet);
 		margin: 0;
@@ -80,7 +80,7 @@ const whatsappLink = `https://wa.me/59162161541?text=${encodeURIComponent(
 
 	.paquete-card-content li{
 		margin-left: 15px;
-		font-size: 0.95rem;
+		font-size: clamp(14px, 1vw, 16px);
 		color: var(--black);
 		line-height: 1.5;
 	}
@@ -129,9 +129,9 @@ const whatsappLink = `https://wa.me/59162161541?text=${encodeURIComponent(
 			
 		}
 		.paquete-card video {
-			flex: 0 0 150px;
-			width: 150px;
-			height: 170px;
+			flex: 0 0 25vw;
+			width: 25vw;
+			height: 30vw;
 			object-fit: cover;
 
 			background-image: url(/logo.png);
@@ -148,7 +148,7 @@ const whatsappLink = `https://wa.me/59162161541?text=${encodeURIComponent(
 		}
 
 		.paquete-card-content .price{
-			line-height: 1;
+			line-height: 1.2;
 		}
 		.p-container{
 			flex-direction: row;
