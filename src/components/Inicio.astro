@@ -71,7 +71,7 @@ const todosLosPaquetes = [
 	<section class="servicios" id="servicios">
 		<div class="shape"></div>
 		<div class="servicios-container">
-			<div class="servicios-header">
+			<div class="servicios-header" data-reveal>
 				<div class="chip light">SERVICIOS</div>
 				<h2>ACTUALIZAMOS <br /> TU <em>PERFÍL</em></h2>
 			</div>
@@ -152,11 +152,11 @@ const todosLosPaquetes = [
 			<div class="objetivo-texts">
 
 			
-				<div class="objetivo-header">
+				<div class="objetivo-header" data-reveal>
 					<div class="chip dark">OBJETIVO</div>
 					<h2>DISEÑADO <br /> PARA <em>CRECER</em></h2>
 				</div>
-				<div class="objetivo-content">
+				<div class="objetivo-content" data-reveal data-delay="1">
 					<p>
 						Diseñado para pequeñas y medianas empresas que buscan
 						mantener una <em>presencia activa en redes</em>. Incluye contenido
@@ -165,7 +165,7 @@ const todosLosPaquetes = [
 						equilibrio perfecto.
 					</p>
 				</div>
-				<div class="objetivo-cards">
+				<div class="objetivo-cards" data-reveal data-delay="2">
 					<div class="objetivo-card oc1">
 						<h3>Contenido Orgánico</h3>
 						<p>
@@ -195,17 +195,17 @@ const todosLosPaquetes = [
 	</section>
 
 	<section class="paquetes">
-		<div class="paquetes-header">
+		<div class="paquetes-header" data-reveal>
 			<div class="chip light">PLANES</div>
 			<h2>ELIGE TU <em>PLAN</em></h2>
 		</div>
-		<div class="filter">
+		<div class="filter" data-reveal data-delay="1">
 			<button class="filter-btn active" data-filter="fotografico">Fotográfico</button>
 			<button class="filter-btn" data-filter="video">Video</button>
 			<button class="filter-btn" data-filter="social">Social Media</button>
 		</div>
 
-		<div class="paquetes-container">
+		<div class="paquetes-container" data-reveal data-delay="2">
 			{todosLosPaquetes.map((paquete) => (
 				<PaqueteCard 
 					title={paquete.titulo} 
@@ -222,12 +222,12 @@ const todosLosPaquetes = [
 
 	<section class="portafolio" id="portafolio">
 		<div class="portafolio-container">
-			<div class="portafolio-header">
+			<div class="portafolio-header" data-reveal>
 				<div class="chip dark">PORTAFOLIO</div>
 				<h2>NUESTRO <em>TRABAJO</em></h2>
 			</div>
 			
-			<div class="portafolio-carousel-wrapper">
+			<div class="portafolio-carousel-wrapper" data-reveal data-delay="1">
 				<button class="carousel-btn carousel-prev" id="prevBtn" aria-label="Anterior">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
 				</button>
@@ -284,7 +284,7 @@ const todosLosPaquetes = [
 	<section class="razones" id="razones">
 		<div class="razones-inner">
 
-			<div class="razones-left">
+			<div class="razones-left" data-reveal="scale">
 				
 				<div class="razones-img-wrapper">
 					<img src="/p2.jpg" alt="Nuestro trabajo" />
@@ -296,12 +296,12 @@ const todosLosPaquetes = [
 			</div>
 
 			<div class="razones-right">
-				<div class="razones-right-header">
+				<div class="razones-right-header" data-reveal>
 					<div class="chip dark">TUS BENEFICIOS</div>
 					<h2>RAZONES <br /> PARA <em>ELEGIRNOS</em></h2>
 				</div>
 
-				<div class="razon-item">
+				<div class="razon-item" data-reveal data-delay="1">
 					<span class="razon-num rn1">01</span>
 					<div class="razon-body">
 						<h3>Descuentos Exclusivos</h3>
@@ -316,7 +316,7 @@ const todosLosPaquetes = [
 
 				<div class="razon-divider"></div>
 
-				<div class="razon-item">
+				<div class="razon-item" data-reveal data-delay="2">
 					<span class="razon-num rn2">02</span>
 					<div class="razon-body">
 						<h3>Modelos</h3>
@@ -326,7 +326,7 @@ const todosLosPaquetes = [
 
 				<div class="razon-divider"></div>
 
-				<div class="razon-item">
+				<div class="razon-item" data-reveal data-delay="3">
 					<span class="razon-num rn3">03</span>
 					<div class="razon-body">
 						<h3>Colaboraciones</h3>
@@ -340,7 +340,7 @@ const todosLosPaquetes = [
 
 	<!-- CONTACTO -->
 	<section class="contacto" id="contacto">
-		<div class="contacto-card">
+		<div class="contacto-card" data-reveal="scale">
 
 			<div class="contacto-info">
 				<div class="contacto-header">
@@ -639,9 +639,10 @@ const todosLosPaquetes = [
 
 	p {
 		font-family: var(--font-hind);
-		font-size: 16px;
+		font-size: clamp(14px, 1.5vw, 16px);
 		font-weight: 400;
 		color: var(--black);
+		line-height: 1.65;
 	}
 
 	.buttons {
@@ -653,22 +654,40 @@ const todosLosPaquetes = [
 	}
 	a {
 		text-decoration: none;
-		background: var(--primary);
-		color: var(--white);
-		padding: 10px 20px;
-		border-radius: 30px;
-		font-weight: 700;
-		font-size: clamp(12px, 2vw, 14px);
-		transition: all 0.3s ease;
+		color: inherit;
 	}
 
-	a:hover {
-		transform: scale(1.05) rotate(3deg);
+	.btn-primary,
+	.btn-secondary {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 12px 28px;
+		border-radius: 30px;
+		font-family: var(--font-montserrat);
+		font-weight: 700;
+		font-size: clamp(13px, 1.5vw, 15px);
+		transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
+	}
+
+	.btn-primary {
+		background: var(--primary);
+		color: var(--white);
+	}
+
+	.btn-primary:hover {
+		transform: scale(1.07) rotate(2deg);
+		box-shadow: 0 10px 28px rgba(129, 152, 202, 0.45);
 	}
 
 	.btn-secondary {
 		background: var(--secondary);
 		color: var(--violet);
+	}
+
+	.btn-secondary:hover {
+		transform: scale(1.07) rotate(-2deg);
+		box-shadow: 0 10px 28px rgba(91, 104, 201, 0.2);
 	}
 
 	@media (max-width: 480px) {
@@ -693,9 +712,11 @@ const todosLosPaquetes = [
 		.description {
 			font-weight: 400;
 		}
-		a {
+		.btn-primary,
+		.btn-secondary {
 			width: 100%;
 			text-align: center;
+			justify-content: center;
 		}
 
 		.servicios {
@@ -800,7 +821,7 @@ const todosLosPaquetes = [
 	}
 
 	.servicios-header {
-		align-items: left;
+		align-items: flex-start;
 		gap: 5px;
 		margin-bottom: 40px;
 	}
@@ -830,7 +851,7 @@ const todosLosPaquetes = [
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		gap: auto;
+		gap: 20px;
 	}
 
 	.s-card {
@@ -997,7 +1018,7 @@ const todosLosPaquetes = [
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		align-items: left;
+		align-items: flex-start;
 	}
 	.objetivo-header h2{
 		color: var(--accent);
@@ -1038,10 +1059,11 @@ const todosLosPaquetes = [
 		height: 100%;
 		display: flex;
 		flex-direction: column;
-		justify-content: top;
+		justify-content: flex-start;
 		align-items: center;
 		padding: 20px;
 		border-radius: 30px;
+		transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
 	}
 
 	.oc1{
@@ -1079,13 +1101,13 @@ const todosLosPaquetes = [
 
 	.paquetes{
 		width: 100%;
-		
 		max-width: 1200px;
-		height: 120vh;
+		height: auto;
+		padding: var(--section-py) 0;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: left;
+		align-items: flex-start;
 		margin: 0 auto;
 	}
 
@@ -1101,7 +1123,7 @@ const todosLosPaquetes = [
 	.filter{
 		display: flex;
 		flex-direction: row;
-		justify-content: left;
+		justify-content: flex-start;
 		align-items: center;
 		gap: 10px;
 	}
@@ -1143,7 +1165,7 @@ const todosLosPaquetes = [
 		max-width: 1200px;
 		display: flex;
 		flex-direction: column;
-		align-items: left;
+		align-items: flex-start;
 		padding-bottom: 60px;
 	}
 
@@ -1307,9 +1329,23 @@ const todosLosPaquetes = [
 		.objetivo-card h3{
 			font-size: clamp(16px, 2vw, 20px);
 			padding: 0;
-
 			width: 100%;
 			text-align: left;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.objetivo-card h3::before {
+			content: "";
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			flex-shrink: 0;
+			background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 12 15 15 9"></polyline></svg>');
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
 		}
 		.objetivo-card p{
 			display: none;
@@ -1605,11 +1641,7 @@ const todosLosPaquetes = [
 		flex-direction: row;
 		align-items: center;
 		gap: 16px;
-		text-decoration: none;
-		background: transparent;
-		padding: 0;
-		border-radius: 0;
-		transition: transform 0.2s ease;
+		transition: transform 0.25s var(--ease-spring);
 	}
 
 	.contacto-item:hover {
@@ -1789,10 +1821,6 @@ const todosLosPaquetes = [
 		font-family: var(--font-hind);
 		font-size: 14px;
 		color: rgba(255,255,255,0.6);
-		background: transparent;
-		padding: 0;
-		border-radius: 0;
-		text-decoration: none;
 	}
 
 	.footer-contact-list span svg {
@@ -1820,17 +1848,14 @@ const todosLosPaquetes = [
 		font-family: var(--font-hind);
 		font-size: 14px;
 		color: rgba(255,255,255,0.55);
-		text-decoration: none;
-		background: transparent;
-		padding: 0;
-		border-radius: 0;
-		transition: color 0.2s ease;
+		transition: color 0.2s ease, transform 0.2s ease;
 		font-weight: 400;
+		display: inline-block;
 	}
 
 	.footer-links nav a:hover {
 		color: var(--light-violet);
-		transform: none;
+		transform: translateX(4px);
 	}
 
 	.social-links {
@@ -1846,12 +1871,8 @@ const todosLosPaquetes = [
 		font-family: var(--font-hind);
 		font-size: 14px;
 		color: rgba(255,255,255,0.7);
-		text-decoration: none;
-		background: transparent;
-		padding: 0;
-		border-radius: 0;
 		font-weight: 600;
-		transition: color 0.2s ease;
+		transition: color 0.2s ease, transform 0.25s var(--ease-spring);
 	}
 
 	.social-link svg {
@@ -1861,7 +1882,7 @@ const todosLosPaquetes = [
 
 	.social-link:hover {
 		color: var(--white);
-		transform: none;
+		transform: translateX(4px);
 	}
 
 	.footer-bottom {
@@ -1881,16 +1902,11 @@ const todosLosPaquetes = [
 		font-family: var(--font-hind);
 		font-size: 13px;
 		color: rgba(255,255,255,0.35);
-		background: transparent;
-		padding: 0;
-		border-radius: 0;
-		text-decoration: none;
 		font-weight: 400;
 	}
 
 	.footer-bottom a:hover {
 		color: rgba(255,255,255,0.7);
-		transform: none;
 	}
 
 	.footer-legal {
@@ -2024,7 +2040,283 @@ const todosLosPaquetes = [
 			height: 16px;
 		}
 	}
+
+	/* ═══════════════════════════════════════════
+	   SCROLL REVEAL
+	═══════════════════════════════════════════ */
+	[data-reveal] {
+		opacity: 0;
+		transform: translateY(36px);
+		transition:
+			opacity 0.7s var(--ease-smooth),
+			transform 0.7s var(--ease-smooth);
+	}
+	[data-reveal="scale"] {
+		transform: scale(0.9);
+	}
+	[data-reveal="right"] {
+		transform: translateX(36px);
+	}
+	[data-reveal].visible {
+		opacity: 1;
+		transform: translateY(0) scale(1) translateX(0);
+	}
+	[data-delay="1"] { transition-delay: 0.12s; }
+	[data-delay="2"] { transition-delay: 0.24s; }
+	[data-delay="3"] { transition-delay: 0.36s; }
+	[data-delay="4"] { transition-delay: 0.48s; }
+
+	@media (prefers-reduced-motion: reduce) {
+		[data-reveal] {
+			opacity: 1;
+			transform: none;
+			transition: none;
+		}
+	}
+
+	/* ═══════════════════════════════════════════
+	   HERO — stagger text entrance
+	═══════════════════════════════════════════ */
+	.card > * {
+		opacity: 0;
+		animation: heroFadeUp 0.75s var(--ease-smooth) forwards;
+	}
+	.card .presentation  { animation-delay: 0.25s; }
+	.card h1             { animation-delay: 0.42s; }
+	.card .hero-logo     { animation-delay: 0.55s; }
+	.card .description   { animation-delay: 0.68s; }
+	.card .buttons       { animation-delay: 0.85s; }
+
+	@keyframes heroFadeUp {
+		from { opacity: 0; transform: translateY(28px); }
+		to   { opacity: 1; transform: translateY(0);    }
+	}
+
+	/* ═══════════════════════════════════════════
+	   CHIPS — pop-in
+	═══════════════════════════════════════════ */
+	.chip {
+		animation: chipPop 0.45s var(--ease-pop) both;
+	}
+
+	@keyframes chipPop {
+		0%   { transform: scale(0.6); opacity: 0; }
+		70%  { transform: scale(1.08); }
+		100% { transform: scale(1);   opacity: 1; }
+	}
+
+	/* ═══════════════════════════════════════════
+	   SERVICE CARDS — enhanced hover
+	═══════════════════════════════════════════ */
+	.s-card {
+		transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease !important;
+	}
+	.s-card:hover {
+		box-shadow: 0 24px 56px rgba(0, 0, 0, 0.22) !important;
+	}
+
+	/* ═══════════════════════════════════════════
+	   OBJETIVO CARDS — lift on hover
+	═══════════════════════════════════════════ */
+	.objetivo-card:hover {
+		transform: translateY(-8px);
+		box-shadow: 0 20px 48px rgba(0, 0, 0, 0.16);
+	}
+
+	/* ═══════════════════════════════════════════
+	   RAZONES — number scale on hover
+	═══════════════════════════════════════════ */
+	.razon-num {
+		transition: transform 0.3s var(--ease-spring);
+		display: inline-block;
+	}
+	.razon-item:hover .razon-num {
+		transform: scale(1.2) translateX(4px);
+	}
+	.razon-item {
+		transition: transform 0.25s ease;
+	}
+	.razon-item:hover {
+		transform: translateX(6px);
+	}
+
+	/* ═══════════════════════════════════════════
+	   FILTER BUTTONS — active press feedback
+	═══════════════════════════════════════════ */
+	.filter-btn {
+		position: relative;
+		overflow: hidden;
+	}
+	.filter-btn::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: rgba(255, 255, 255, 0.3);
+		border-radius: inherit;
+		transform: scale(0);
+		opacity: 0;
+		transition: transform 0.3s ease, opacity 0.3s ease;
+	}
+	.filter-btn:active::after {
+		transform: scale(1);
+		opacity: 1;
+	}
+	.filter-btn:active {
+		transform: scale(0.96);
+	}
+
+	/* ═══════════════════════════════════════════
+	   CONTACT ITEMS — slide + icon pulse
+	═══════════════════════════════════════════ */
+	.contacto-item:hover {
+		transform: translateX(8px);
+	}
+	.contacto-item:hover .citem-icon {
+		background-color: rgba(255,255,255,0.35);
+		transform: scale(1.12);
+	}
+	.citem-icon {
+		transition: background-color 0.25s ease, transform 0.3s var(--ease-spring);
+	}
+
+	/* ═══════════════════════════════════════════
+	   BADGE — float animation
+	═══════════════════════════════════════════ */
+	.razones-badge {
+		animation: floatBadge 3.5s ease-in-out infinite;
+	}
+	@keyframes floatBadge {
+		0%, 100% { transform: translateY(0);    }
+		50%       { transform: translateY(-8px); }
+	}
+
+	/* ═══════════════════════════════════════════
+	   CAROUSEL DOTS — animated active
+	═══════════════════════════════════════════ */
+	.carousel-dot.active {
+		background-color: var(--violet);
+		transform: scale(1.5);
+		box-shadow: 0 0 0 3px rgba(91, 104, 201, 0.25);
+	}
+	.carousel-dot {
+		transition: background-color 0.25s ease, transform 0.3s var(--ease-spring), box-shadow 0.25s ease;
+	}
+
+	/* ═══════════════════════════════════════════
+	   CURSOR GLOW
+	═══════════════════════════════════════════ */
+	.cursor-glow {
+		width: 380px;
+		height: 380px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(91,104,201,0.12) 0%, transparent 70%);
+		position: fixed;
+		top: 0;
+		left: 0;
+		pointer-events: none;
+		z-index: 0;
+		transform: translate(-50%, -50%);
+		transition: transform 0.18s ease;
+		mix-blend-mode: multiply;
+	}
+
+	/* ═══════════════════════════════════════════
+	   LOGO SLIDES — hover pop
+	═══════════════════════════════════════════ */
+	.logo-slide {
+		transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
+	}
+	.logo-slide:hover {
+		transform: scale(1.15) rotate(-4deg);
+		box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+	}
+
+	/* ═══════════════════════════════════════════
+	   GALLERY IMAGE — deeper zoom on hover
+	═══════════════════════════════════════════ */
+	.gallery-img {
+		transition: transform 0.4s var(--ease-spring), box-shadow 0.4s ease;
+	}
+	.gallery-img:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 20px 48px rgba(0,0,0,0.18) !important;
+	}
+	.gallery-img:hover img {
+		transform: scale(1.06);
+	}
+
+	/* ═══════════════════════════════════════════
+	   PAQUETE CARD hover (component override)
+	═══════════════════════════════════════════ */
+	.paquetes-container :global(.paquete-card) {
+		transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease;
+	}
+	.paquetes-container :global(.paquete-card):hover {
+		transform: translateY(-6px);
+		box-shadow: 0 20px 48px rgba(0,0,0,0.12);
+	}
+
+	/* ═══════════════════════════════════════════
+	   SECTION PADDING CONSISTENCY
+	═══════════════════════════════════════════ */
+	.razones   { padding: var(--section-py) 0; }
+	.contacto  { padding: var(--section-py) var(--container-px); }
+	.objetivo  { padding: var(--section-py) 0; }
+
 </style>
+
+<script is:inline>
+	/* ── Scroll Reveal ── */
+	(function () {
+		const revealEls = document.querySelectorAll('[data-reveal]');
+		if (!revealEls.length) return;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.12, rootMargin: '0px 0px -32px 0px' }
+		);
+
+		revealEls.forEach((el) => observer.observe(el));
+	})();
+
+	/* ── Counter animation for badge ── */
+	(function () {
+		const badgeEl = document.querySelector('.badge-num');
+		if (!badgeEl) return;
+
+		let animated = false;
+		const observer = new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting && !animated) {
+					animated = true;
+					let start = null;
+					const target = 100;
+					const duration = 1400;
+					const step = (ts) => {
+						if (!start) start = ts;
+						const progress = Math.min((ts - start) / duration, 1);
+						const eased = 1 - Math.pow(1 - progress, 3);
+						badgeEl.textContent = '+' + Math.floor(eased * target);
+						if (progress < 1) requestAnimationFrame(step);
+					};
+					requestAnimationFrame(step);
+					observer.disconnect();
+				}
+			},
+			{ threshold: 0.6 }
+		);
+		observer.observe(badgeEl);
+	})();
+
+	
+</script>
 
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
