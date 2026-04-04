@@ -1231,8 +1231,8 @@ const todosLosPaquetes = [
 	}
 	
 	.ver-completo:hover {
-		background-color: var(--violet);
-		transform: scale(1.05); /* Same as general links */
+
+		transform: rotate(3deg) scale(1.05);
 	}
 
 	.marquesina-container {
@@ -1425,6 +1425,7 @@ const todosLosPaquetes = [
 
 	.razones-img-wrapper:hover img {
 		transform: scale(1.04);
+		
 	}
 
 	.razones-badge {
@@ -1699,6 +1700,11 @@ const todosLosPaquetes = [
 		object-position: bottom;
 		display: block;
 		filter: drop-shadow(0 10px 30px rgba(0,0,0,0.2));
+		transition: transform 0.5s ease;
+	}
+
+	.persona-img:hover {
+		transform: scale(1.04);
 	}
 
 	.persona-card {
