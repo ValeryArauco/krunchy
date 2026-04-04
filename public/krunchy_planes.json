@@ -1,0 +1,65 @@
+{
+  "planes": {
+    "paquetes_fotograficos": [
+      {
+        "titulo": "e-Commerce",
+        "descripcion": "20 fotos fondo blanco. Multiuso, ideal para diseño gráfico.",
+        "precio": "Bs. 1.730",
+        "video": "https://krunchycontent.my.canva.site/nuestros-servicios/_assets/video/69b1955d2c16de4999cd56facc59d313.mp4"
+      },
+      {
+        "titulo": "Social Media",
+        "descripcion": "15 fotos o 4 carruseles. Uso de espacio de marca. Modelos.",
+        "precio": "Bs. 2.421",
+        "video": "https://krunchycontent.my.canva.site/nuestros-servicios/_assets/video/9cf31d908c05409b88df43ea71dc97c8.mp4"
+      },
+      {
+        "titulo": "Publicitario",
+        "descripcion": "20 fotos. Dirección de arte, set. Conceptualización.",
+        "precio": "Bs. 7.500",
+        "video": "https://krunchycontent.my.canva.site/nuestros-servicios/_assets/video/6166073fcbb2474f08d3af4135a3b05f.mp4"
+      }
+    ],
+    "paquetes_video_publicitario": [
+      {
+        "titulo": "BITE",
+        "descripcion": "3 videos verticales. Modelos o creador UGC.",
+        "precio": "Bs. 3.500",
+        "video": "https://krunchycontent.my.canva.site/nuestros-servicios/_assets/video/59f87451c5c0eadfa717858d92d91e9d.mp4"
+      },
+      {
+        "titulo": "TASTY",
+        "descripcion": "4 videos verticales. Modelos o creador UGC.",
+        "precio": "Bs. 4.500",
+        "video": "https://krunchycontent.my.canva.site/nuestros-servicios/_assets/video/26378ec76d28da367f05641d25eae843.mp4"
+      },
+      {
+        "titulo": "KRUNCHY",
+        "descripcion": "5 videos verticales. Modelos o creador UGC.",
+        "precio": "Bs. 5.500",
+        "video": "https://krunchycontent.my.canva.site/nuestros-servicios/_assets/video/ccea13611a440fc689115c86c8ed4f77.mp4"
+      }
+    ],
+    "paquetes_social_media": [
+      {
+        "titulo": "SPICY",
+        "descripcion": "3 videos formato TikTok. 1 creador de contenido.",
+        "precio": "Bs. 2.500",
+        "video": "https://krunchycontent.my.canva.site/nuestros-servicios/_assets/video/4e41c1ef9363a7d85cee152e4cbfcd7d.mp4"
+      },
+      {
+        "titulo": "DELICIOUS",
+        "descripcion": "4 videos formato TikTok. 1 carrusel de fotos. 1 creador de contenido.",
+        "precio": "Bs. 3.500",
+        "video": "https://krunchycontent.my.canva.site/nuestros-servicios/_assets/video/e0cbc7ea3fe0057a218ced85150ed3fb.mp4"
+      },
+      {
+        "titulo": "YUMMY",
+        "descripcion": "6 videos formato TikTok. 2 carruseles de fotos. 1 creador de contenido.",
+        "precio": "Bs. 4.500",
+        "video": "https://krunchycontent.my.canva.site/nuestros-servicios/_assets/video/58ce694057d61a3ed593c48cb74b0f38.mp4"
+      }
+    ]
+  },
+  "nota": "Cualquier servicio es entregado en un plazo de 7 días hábiles."
+}

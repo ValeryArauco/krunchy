@@ -24,7 +24,31 @@ import Header from "../components/Header.astro";
 	</body>
 </html>
 
-<style>
+<style is:global>
+	:root {
+		--primary: #8198ca;
+		--secondary: #d9d8d8;
+		--accent: #85b4db;
+		--dark-accent: #2a608e;
+		--light-accent: #c4dbee;
+		--white: #ffffff;
+		--black: #2c2c2c;
+		--violet: #5b68c9;
+		--dark-violet: #2a2682;
+		--light-violet: #9da4df;
+		--dark-light-violet: #757ed2;
+
+		--font-hind: "Hind Madurai", sans-serif;
+		--font-montserrat: "Montserrat", sans-serif;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: var(--font-montserrat);
+	}
+
 	html,
 	body {
 		margin: 0;

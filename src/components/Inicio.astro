@@ -1,5 +1,12 @@
 ---
+import PaqueteCard from './PaqueteCard.astro';
+import planesData from '../../public/krunchy_planes.json';
 
+const todosLosPaquetes = [
+	...planesData.planes.paquetes_fotograficos.map(p => ({...p, categoria: 'fotografico'})),
+	...planesData.planes.paquetes_video_publicitario.map(p => ({...p, categoria: 'video'})),
+	...planesData.planes.paquetes_social_media.map(p => ({...p, categoria: 'social'}))
+];
 ---
 
 <main>
@@ -55,7 +62,7 @@
 			<div class="buttons">
 				<a href="#" class="btn-primary"> Contactanos </a>
 				<a href="#" class="btn-secondary">
-					<span>Ver </span>Paquetes
+					<span>Ver </span>Planes
 				</a>
 			</div>
 		</div>
@@ -186,31 +193,34 @@
 		</div>
 		
 	</section>
+
+	<section class="paquetes">
+		<div class="paquetes-header">
+			<div class="chip light">PLANES</div>
+			<h2>ELIGE TU <em>PLAN</em></h2>
+		</div>
+		<div class="filter">
+			<button class="filter-btn active" data-filter="fotografico">Fotográfico</button>
+			<button class="filter-btn" data-filter="video">Video</button>
+			<button class="filter-btn" data-filter="social">Social Media</button>
+		</div>
+
+		<div class="paquetes-container">
+			{todosLosPaquetes.map((paquete) => (
+				<PaqueteCard 
+					title={paquete.titulo} 
+					description={paquete.descripcion.split(".").filter((item) => item.trim() !== "")} 
+					price={paquete.precio} 
+					video={paquete.video || ""} 
+					categoria={paquete.categoria}
+				/>
+			))}
+		</div>
+	</section>
 </main>
 
 <style>
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
 
-		--primary: #8198ca;
-		--secondary: #d9d8d8;
-		--accent: #85b4db;
-		--dark-accent: #2a608e;
-		--light-accent: #c4dbee;
-		--white: #ffffff;
-		--black: #2c2c2c;
-		--violet: #5b68c9;
-		--dark-violet: #2a2682;
-		--light-violet: #9da4df;
-		--dark-light-violet: #757ed2;
-
-		--font-hind: "Hind Madurai", sans-serif;
-		--font-montserrat: "Montserrat", sans-serif;
-
-		font-family: var(--font-montserrat);
-	}
 
 	main {
 		overflow-x: hidden; /* Evita que el giro muestre barra de desplazamiento horizontal */
@@ -478,6 +488,10 @@
 			width: 45px;
 			height: 45px;
 		}
+		
+
+		
+		
 		
 	}
 
@@ -796,9 +810,61 @@
 		border-radius: 30px;
 	}
 
+	.paquetes{
+		width: 100%;
+		
+		max-width: 1200px;
+		height: 120vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: left;
+		margin: 0 auto;
+	}
+
+	.paquetes-container{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+		gap: 20px;
+	}
+	
+	.filter{
+		display: flex;
+		flex-direction: row;
+		justify-content: left;
+		align-items: center;
+		gap: 10px;
+	}
+	.filter-btn {
+		padding: 5px 10px;
+		margin: 20px 0px;
+		border: none;
+		border-radius: 10px;
+		background-color: var(--white);
+		color: var(--violet);
+		font-family: var(--font-montserrat);
+		font-size: clamp(14px, 2vw, 16px);
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.filter-btn:hover {
+		transform: scale(1.05);
+	}
+	.filter-btn.active {
+		background-color: var(--violet);
+		color: var(--white);
+	}
+
+
 	@media (max-width: 1200px) {
         .servicios-container,
-		.objetivo-container{
+		.objetivo-container,
+		.paquetes{
             width: calc(100% - 48px);
         }
 
@@ -811,7 +877,10 @@
 	@media (max-width: 768px) {
 		.objetivo-cards{
 			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 			gap: 20px;
+			
 		}
 		.objetivo-card{
 			width: 100%;
@@ -844,6 +913,19 @@
 		.objetivo video,
 		.objetivo-texts{
 			width: 100%;
+		}
+
+		.paquetes{
+			height: auto !important;
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+
+		.paquetes-container{
+			flex-direction: column !important;
+			width: 100% ;
+			margin: 0;
+			
 		}
 	}
 </style>
@@ -933,6 +1015,40 @@
 			};
 			window.addEventListener("resize", resizeHandler);
 			return () => window.removeEventListener("resize", resizeHandler);
+		});
+
+		// Filtros de paquetes
+		const filterBtns = document.querySelectorAll('.filter-btn');
+		const packageCards = document.querySelectorAll('.paquete-card');
+
+		// Mostrar por defecto solo la categoria del boton activo al cargar
+		const activeBtn = document.querySelector('.filter-btn.active');
+		if (activeBtn) {
+			const activeFilter = activeBtn.getAttribute('data-filter');
+			packageCards.forEach(card => {
+				if (card.getAttribute('data-category') === activeFilter) {
+					card.style.display = 'flex';
+				} else {
+					card.style.display = 'none';
+				}
+			});
+		}
+
+		filterBtns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				filterBtns.forEach(b => b.classList.remove('active'));
+				btn.classList.add('active');
+
+				const filterValue = btn.getAttribute('data-filter');
+
+				packageCards.forEach(card => {
+					if (card.getAttribute('data-category') === filterValue) {
+						card.style.display = 'flex';
+					} else {
+						card.style.display = 'none';
+					}
+				});
+			});
 		});
 	});
 </script>
